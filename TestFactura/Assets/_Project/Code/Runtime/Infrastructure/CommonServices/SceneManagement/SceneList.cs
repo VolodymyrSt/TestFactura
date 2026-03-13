@@ -1,4 +1,4 @@
-namespace _Project.Code.Runtime.Infrastructure.CommonServices.SceneLoaderService
+namespace _Project.Code.Runtime.Infrastructure.CommonServices.SceneManagement
 {
     public static class SceneList
     {

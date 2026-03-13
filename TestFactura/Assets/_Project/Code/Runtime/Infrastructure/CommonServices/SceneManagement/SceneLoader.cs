@@ -4,7 +4,7 @@ using _Project.Code.Runtime.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace _Project.Code.Runtime.Infrastructure.CommonServices.SceneLoaderService
+namespace _Project.Code.Runtime.Infrastructure.CommonServices.SceneManagement
 {
     public class SceneLoader : ISceneLoader
     {

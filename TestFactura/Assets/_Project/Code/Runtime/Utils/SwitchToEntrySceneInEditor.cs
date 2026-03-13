@@ -1,4 +1,4 @@
-using _Project.Code.Runtime.Infrastructure.CommonServices.SceneLoaderService;
+using _Project.Code.Runtime.Infrastructure.CommonServices.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
