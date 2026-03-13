@@ -7,13 +7,22 @@
             "id": "cf0d8360-72b7-4808-8104-a014634ec286",
             "actions": [
                 {
-                    "name": "Look",
+                    "name": "SwipeDelta",
                     "type": "Value",
                     "id": "57012bde-9d6e-4c2f-a211-4adb5123bab7",
                     "expectedControlType": "Delta",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Touch",
+                    "type": "Button",
+                    "id": "1ba3a35a-7c99-4de9-842d-643e3860e0ed",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -24,7 +33,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Look",
+                    "action": "SwipeDelta",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cfd5c7f4-1ea0-4629-bdf9-afb4f1e44292",
+                    "path": "<Touchscreen>/primaryTouch/tap",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

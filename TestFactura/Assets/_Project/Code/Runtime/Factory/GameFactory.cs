@@ -1,3 +1,4 @@
+using _Project.Code.Runtime.Configs.Turret;
 using _Project.Code.Runtime.GameLogic.Camera;
 using _Project.Code.Runtime.GameLogic.Car;
 using _Project.Code.Runtime.GameLogic.Turret;
@@ -26,7 +27,8 @@ namespace _Project.Code.Runtime.Factory
         {
             CarHandler carHandlerPrefab = _assetsProvider.Load<CarHandler>(AssetPath.Car);
             ICar carInstance = _instantiator.InstantiatePrefabForComponent<CarHandler>(carHandlerPrefab);
-            carInstance.SetUp(warpPosition, destinationPosition, _staticDataService.CarConfig.Speed);
+            float carSpeed = _staticDataService.CarConfig.Speed;
+            carInstance.SetUp(warpPosition, destinationPosition, carSpeed);
             return carInstance;
         }
         
@@ -34,6 +36,8 @@ namespace _Project.Code.Runtime.Factory
         {
             TurretHandler turretPrefab = _assetsProvider.Load<TurretHandler>(AssetPath.Turret);
             ITurret turretInstance = _instantiator.InstantiatePrefabForComponent<TurretHandler>(turretPrefab);
+            TurretConfigSO turretConfig = _staticDataService.TurretConfig;
+            turretInstance.Init(turretConfig);
             return turretInstance;
         }
         

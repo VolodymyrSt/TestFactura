@@ -7,5 +7,6 @@ namespace _Project.Code.Runtime.Infrastructure.CommonServices.AssetsManagement
         public const string Turret = "Turret/Turret";
         
         public const string CarConfig = "Configs/CarConfig";
+        public const string TurretConfig = "Configs/TurretConfig";
     }
 }

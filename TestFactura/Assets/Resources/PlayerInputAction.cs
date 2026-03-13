@@ -93,13 +93,22 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             ""id"": ""cf0d8360-72b7-4808-8104-a014634ec286"",
             ""actions"": [
                 {
-                    ""name"": ""Look"",
+                    ""name"": ""SwipeDelta"",
                     ""type"": ""Value"",
                     ""id"": ""57012bde-9d6e-4c2f-a211-4adb5123bab7"",
                     ""expectedControlType"": ""Delta"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Touch"",
+                    ""type"": ""Button"",
+                    ""id"": ""1ba3a35a-7c99-4de9-842d-643e3860e0ed"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -110,7 +119,18 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Look"",
+                    ""action"": ""SwipeDelta"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cfd5c7f4-1ea0-4629-bdf9-afb4f1e44292"",
+                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Touch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -121,7 +141,8 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
+        m_Player_SwipeDelta = m_Player.FindAction("SwipeDelta", throwIfNotFound: true);
+        m_Player_Touch = m_Player.FindAction("Touch", throwIfNotFound: true);
     }
 
     ~@PlayerInputAction()
@@ -202,7 +223,8 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_Look;
+    private readonly InputAction m_Player_SwipeDelta;
+    private readonly InputAction m_Player_Touch;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -215,9 +237,13 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         /// </summary>
         public PlayerActions(@PlayerInputAction wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "Player/Look".
+        /// Provides access to the underlying input action "Player/SwipeDelta".
         /// </summary>
-        public InputAction @Look => m_Wrapper.m_Player_Look;
+        public InputAction @SwipeDelta => m_Wrapper.m_Player_SwipeDelta;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Touch".
+        /// </summary>
+        public InputAction @Touch => m_Wrapper.m_Player_Touch;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -244,9 +270,12 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
-            @Look.started += instance.OnLook;
-            @Look.performed += instance.OnLook;
-            @Look.canceled += instance.OnLook;
+            @SwipeDelta.started += instance.OnSwipeDelta;
+            @SwipeDelta.performed += instance.OnSwipeDelta;
+            @SwipeDelta.canceled += instance.OnSwipeDelta;
+            @Touch.started += instance.OnTouch;
+            @Touch.performed += instance.OnTouch;
+            @Touch.canceled += instance.OnTouch;
         }
 
         /// <summary>
@@ -258,9 +287,12 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         /// <seealso cref="PlayerActions" />
         private void UnregisterCallbacks(IPlayerActions instance)
         {
-            @Look.started -= instance.OnLook;
-            @Look.performed -= instance.OnLook;
-            @Look.canceled -= instance.OnLook;
+            @SwipeDelta.started -= instance.OnSwipeDelta;
+            @SwipeDelta.performed -= instance.OnSwipeDelta;
+            @SwipeDelta.canceled -= instance.OnSwipeDelta;
+            @Touch.started -= instance.OnTouch;
+            @Touch.performed -= instance.OnTouch;
+            @Touch.canceled -= instance.OnTouch;
         }
 
         /// <summary>
@@ -302,11 +334,18 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         /// <summary>
-        /// Method invoked when associated input action "Look" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "SwipeDelta" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnLook(InputAction.CallbackContext context);
+        void OnSwipeDelta(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Touch" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTouch(InputAction.CallbackContext context);
     }
 }
