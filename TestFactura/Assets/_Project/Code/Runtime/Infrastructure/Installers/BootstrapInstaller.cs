@@ -1,5 +1,6 @@
 using _Project.Code.Runtime.Infrastructure.CommonServices.AssetsManagement;
 using _Project.Code.Runtime.Infrastructure.CommonServices.SceneManagement;
+using _Project.Code.Runtime.Infrastructure.CommonServices.StaticData;
 using _Project.Code.Runtime.Utils;
 using UnityEngine;
 using Zenject;
@@ -12,11 +13,15 @@ namespace _Project.Code.Runtime.Infrastructure.Installers
         
         public override void InstallBindings()
         {
+            BindStaticDataService();
             BindCoroutineRunner();
             BindSceneLoader();
             BindAssetsProvider();
             BindLoadingCurtain();
         }
+
+        private void BindStaticDataService() => 
+            Container.BindInterfacesTo<StaticDataService>().AsSingle();
 
         private void BindLoadingCurtain() => 
             Container.Bind<ILoadingCurtain>().FromComponentInNewPrefab(_loadingCurtain).AsSingle();
