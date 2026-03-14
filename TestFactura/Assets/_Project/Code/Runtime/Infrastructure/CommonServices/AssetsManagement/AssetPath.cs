@@ -8,5 +8,6 @@ namespace _Project.Code.Runtime.Infrastructure.CommonServices.AssetsManagement
         
         public const string CarConfig = "Configs/CarConfig";
         public const string TurretConfig = "Configs/TurretConfig";
+        public const string EnemyConfig = "Configs/EnemyConfig";
     }
 }

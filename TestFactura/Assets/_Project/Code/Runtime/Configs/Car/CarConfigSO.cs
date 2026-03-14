@@ -6,5 +6,6 @@ namespace _Project.Code.Runtime.Configs.Car
     public class CarConfigSO : ScriptableObject
     {
         [Range(1f, 25f)] public float Speed;
+        [Range(1f, 20f)] public float Health = 10f;
     }
 }

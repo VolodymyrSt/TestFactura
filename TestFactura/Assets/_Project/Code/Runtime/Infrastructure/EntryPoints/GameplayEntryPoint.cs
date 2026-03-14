@@ -31,19 +31,37 @@ namespace _Project.Code.Runtime.Infrastructure.EntryPoints
         {
             _inputService.Enable();
             
-            _inputService.OnScreenTouched += InputServiceOnOnScreenTouched;
+            _inputService.OnScreenTouched += StartGameplay;
                 
             _car = _gameFactory.CreateCar(_carWarpPoint.position, _carDestinationPoint.position);
             ITurret turret = _gameFactory.CreateTurret();
             ICamera camera = _gameFactory.CreateCamera();
             
+            _car.OnDestroyed += OnGameLost;
+            _car.OnReachedEnd += OnGameWon;
+            
             camera.SetTarget(_car.CameraTarget);
             turret.InstallOn(_car.TurretInstallPoint);
         }
 
-        private void InputServiceOnOnScreenTouched()
+        private void OnGameLost()
         {
+            
+        }
+        
+        private void OnGameWon()
+        {
+            
+        }
+
+        private void StartGameplay() => 
             _car.StartMoving();
+
+        private void OnDestroy()
+        {
+            _inputService.OnScreenTouched -= StartGameplay;
+            _car.OnDestroyed -= OnGameLost;
+            _car.OnReachedEnd -= OnGameWon;
         }
     }
 }

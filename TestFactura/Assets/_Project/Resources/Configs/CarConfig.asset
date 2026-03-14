@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d229de236ef4968a74e7d3de2d40821, type: 3}
   m_Name: CarConfig
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Code.Runtime.Configs.Car.CarConfigSO
-  Speed: 10
+  Speed: 5
+  Health: 10

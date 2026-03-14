@@ -28,7 +28,8 @@ namespace _Project.Code.Runtime.Factory
             CarHandler carHandlerPrefab = _assetsProvider.Load<CarHandler>(AssetPath.Car);
             ICar carInstance = _instantiator.InstantiatePrefabForComponent<CarHandler>(carHandlerPrefab);
             float carSpeed = _staticDataService.CarConfig.Speed;
-            carInstance.SetUp(warpPosition, destinationPosition, carSpeed);
+            float carHealth = _staticDataService.CarConfig.Health;
+            carInstance.SetUp(warpPosition, destinationPosition, carSpeed, carHealth);
             return carInstance;
         }
         

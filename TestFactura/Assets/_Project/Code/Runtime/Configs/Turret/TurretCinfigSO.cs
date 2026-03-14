@@ -10,5 +10,8 @@ namespace _Project.Code.Runtime.Configs.Turret
         [Range(1f, 20f)] public float Response = 10f;
         [Range(-30f, -90f)] public float MinAngle = -60f;
         [Range(30f, 90f)] public float MaxAngle = 60f;
+        
+        [Header("Impact Settings:")]
+        [Range(5f, 10f)] public float Damage = 10f;
     }
 }
