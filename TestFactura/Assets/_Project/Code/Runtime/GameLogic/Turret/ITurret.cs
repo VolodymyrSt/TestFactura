@@ -7,5 +7,7 @@ namespace _Project.Code.Runtime.GameLogic.Turret
     {
         void InstallOn(Transform installPoint);
         void Init(TurretConfigSO config);
+        void Activate();
+        void Deactivate();
     }
 }

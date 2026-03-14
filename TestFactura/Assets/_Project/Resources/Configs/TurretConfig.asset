@@ -16,3 +16,8 @@ MonoBehaviour:
   Response: 5
   MinAngle: -60
   MaxAngle: 60
+  Damage: 5
+  FireCooldown: 0.3
+  BulletForce: 30.4
+  BulletLifeTime: 1.5
+  LaserLength: 10

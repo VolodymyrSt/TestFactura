@@ -1,3 +1,5 @@
+using _Project.Code.Runtime.GameLogic.Bullet;
+using _Project.Code.Runtime.GameLogic.Bullet.Pool;
 using _Project.Code.Runtime.GameLogic.Camera;
 using _Project.Code.Runtime.GameLogic.Car;
 using _Project.Code.Runtime.GameLogic.Turret;
@@ -10,5 +12,6 @@ namespace _Project.Code.Runtime.Factory
         ICar CreateCar(Vector3 warpPosition, Vector3 destinationPosition);
         ICamera CreateCamera();
         ITurret CreateTurret();
+        IBullet CreateBullet(IBulletPool bulletPool, Transform under);
     }
 }

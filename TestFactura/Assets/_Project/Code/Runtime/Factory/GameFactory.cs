@@ -1,4 +1,6 @@
 using _Project.Code.Runtime.Configs.Turret;
+using _Project.Code.Runtime.GameLogic.Bullet;
+using _Project.Code.Runtime.GameLogic.Bullet.Pool;
 using _Project.Code.Runtime.GameLogic.Camera;
 using _Project.Code.Runtime.GameLogic.Car;
 using _Project.Code.Runtime.GameLogic.Turret;
@@ -47,6 +49,14 @@ namespace _Project.Code.Runtime.Factory
             CameraHandler cameraPrefab = _assetsProvider.Load<CameraHandler>(AssetPath.Camera);
             ICamera cameraInstance = _instantiator.InstantiatePrefabForComponent<CameraHandler>(cameraPrefab);
             return cameraInstance;
+        }
+        
+        public IBullet CreateBullet(IBulletPool bulletPool, Transform under)
+        {
+            BulletHandler bulletPrefab = _assetsProvider.Load<BulletHandler>(AssetPath.Bullet);
+            IBullet bulletInstance = _instantiator.InstantiatePrefabForComponent<BulletHandler>(bulletPrefab, under);
+            bulletInstance.Init(bulletPool);
+            return bulletInstance;
         }
     }
 }

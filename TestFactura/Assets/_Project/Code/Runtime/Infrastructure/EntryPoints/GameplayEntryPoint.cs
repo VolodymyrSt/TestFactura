@@ -19,6 +19,7 @@ namespace _Project.Code.Runtime.Infrastructure.EntryPoints
         private IInputService _inputService;
 
         private ICar _car;
+        private ITurret _turret;
         
         [Inject]
         private void Construct(IGameFactory gameFactory, IInputService inputService)
@@ -34,28 +35,31 @@ namespace _Project.Code.Runtime.Infrastructure.EntryPoints
             _inputService.OnScreenTouched += StartGameplay;
                 
             _car = _gameFactory.CreateCar(_carWarpPoint.position, _carDestinationPoint.position);
-            ITurret turret = _gameFactory.CreateTurret();
+            _turret = _gameFactory.CreateTurret();
             ICamera camera = _gameFactory.CreateCamera();
             
             _car.OnDestroyed += OnGameLost;
             _car.OnReachedEnd += OnGameWon;
             
             camera.SetTarget(_car.CameraTarget);
-            turret.InstallOn(_car.TurretInstallPoint);
+            _turret.InstallOn(_car.TurretInstallPoint);
         }
 
         private void OnGameLost()
         {
-            
+            _turret.Deactivate();
         }
         
         private void OnGameWon()
         {
-            
+            _turret.Deactivate();
         }
 
-        private void StartGameplay() => 
+        private void StartGameplay()
+        {
             _car.StartMoving();
+            _turret.Activate();
+        }
 
         private void OnDestroy()
         {
