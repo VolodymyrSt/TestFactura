@@ -31,6 +31,7 @@ namespace _Project.Code.Runtime.GameLogic.Bullet.Pool
                 ? _factory.CreateBullet(this, Holder) 
                 : _pooledBullets.Dequeue();
 
+            bullet.Reset();
             bullet.SetActive(true);
             return bullet;
         }

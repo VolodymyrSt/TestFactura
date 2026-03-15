@@ -30,6 +30,13 @@ namespace _Project.Code.Runtime.GameLogic.Bullet
             transform.position = warpPoint.position;
             transform.rotation = warpPoint.rotation;
         }
+        
+        public void Reset()
+        {
+            _isFired = false;
+            _rigidbody.linearVelocity = Vector3.zero;
+            _rigidbody.angularVelocity = Vector3.zero;
+        }
 
         public void Fire(Vector3 direction, float force, float lifeTime, float damage)
         {
@@ -38,14 +45,11 @@ namespace _Project.Code.Runtime.GameLogic.Bullet
             _damage = damage;
             _liveTimer = 0f;
             
-            _rigidbody.linearVelocity = Vector3.zero;
-            _rigidbody.angularVelocity = Vector3.zero;
-            
             _rigidbody.AddForce(direction.normalized * force, ForceMode.Impulse);
             transform.rotation = Quaternion.LookRotation(_direction);
             
-            _trail.Clear();
             _trail.enabled = true;
+            _trail.Clear();
             
             _isFired = true;
         }
@@ -74,7 +78,6 @@ namespace _Project.Code.Runtime.GameLogic.Bullet
         
         private void ReturnToPool()
         {
-            _isFired = false;
             _trail.enabled = false;
             _trail.Clear();
             _pool.Release(this);

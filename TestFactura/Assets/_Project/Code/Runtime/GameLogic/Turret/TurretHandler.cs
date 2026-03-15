@@ -13,7 +13,6 @@ namespace _Project.Code.Runtime.GameLogic.Turret
         [Header("Base:")]
         [SerializeField] private Transform _visual;
         [SerializeField] private Transform _bulletWarpPoint;
-        [SerializeField] private Vector3 _fireDirectionOffset;
         
         [Header("Laser:")]
         [SerializeField] private LineRenderer _laser;
@@ -77,9 +76,7 @@ namespace _Project.Code.Runtime.GameLogic.Turret
         {
             IBullet bullet = _bulletPool.Get();
             bullet.Warp(_bulletWarpPoint);
-            
-            Vector3 fireDirection = (_bulletWarpPoint.forward + _fireDirectionOffset).normalized;
-            bullet.Fire(fireDirection, _config.BulletForce, _config.BulletLifeTime, _config.Damage);
+            bullet.Fire(_bulletWarpPoint.forward, _config.BulletForce, _config.BulletLifeTime, _config.Damage);
         }
         
         private void UpdateRotation()
@@ -101,10 +98,8 @@ namespace _Project.Code.Runtime.GameLogic.Turret
         
         private void SetUpLaser()
         {
-            Vector3 direction = (_bulletWarpPoint.forward + _fireDirectionOffset).normalized;
-
             _laser.SetPosition(0, Vector3.zero);
-            _laser.SetPosition(1, direction * _config.LaserLength);
+            _laser.SetPosition(1, _bulletWarpPoint.forward * _config.LaserLength);
         }
         
         private void UpdateFireCooldown() =>

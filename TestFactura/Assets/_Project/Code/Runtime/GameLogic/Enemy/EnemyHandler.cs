@@ -18,6 +18,7 @@ namespace _Project.Code.Runtime.GameLogic.Enemy
         [SerializeField] private NavMeshAgent _agent;
         [SerializeField] private Animator _animator;
         [SerializeField] private HealthBarView _healthBarView;
+        [SerializeField] private ParticleSystem _bloodParticles;
         
         [Header("Target")]
         [SerializeField] private LayerMask _targetMask;
@@ -53,6 +54,8 @@ namespace _Project.Code.Runtime.GameLogic.Enemy
         public void TakeDamage(float damage)
         {
             _healthSystem.Reduce(damage);
+            
+            _bloodParticles.Play();
 
             if (_healthSystem.Current <= 0)
                 Die();
@@ -85,10 +88,11 @@ namespace _Project.Code.Runtime.GameLogic.Enemy
         
         private void UpdateChase()
         {
-            if (_target.IsAlive) 
+            if (_target != null && _target.IsAlive) 
                 _agent.SetDestination(_target.Transform.position);
             else
             {
+                _target = null;
                 _agent.isStopped = true;
                 SetState(EnemyState.Idle);
             }
@@ -136,9 +140,14 @@ namespace _Project.Code.Runtime.GameLogic.Enemy
         private bool IsTargetLayer(Collider other) => 
             (_targetMask.value & (1 << other.gameObject.layer)) != 0;
 
-        private void Die() => 
+        private void Die()
+        {
+            _bloodParticles.transform.SetParent(null);
+            _bloodParticles.Play();
+            Destroy(_bloodParticles.gameObject, _bloodParticles.main.duration);
             Destroy(gameObject);
-        
+        }
+
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.green;

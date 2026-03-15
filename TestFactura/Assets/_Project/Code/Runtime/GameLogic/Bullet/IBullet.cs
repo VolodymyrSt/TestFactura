@@ -9,5 +9,6 @@ namespace _Project.Code.Runtime.GameLogic.Bullet
         void SetActive(bool active);
         void Fire(Vector3 direction, float force, float lifeTime, float damage);
         void Warp(Transform warpPoint);
+        void Reset();
     }
 }

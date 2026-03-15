@@ -18,13 +18,7 @@ namespace _Project.Code.Runtime.Infrastructure.CommonServices.SceneManagement
 
         private IEnumerator LoadScene(string sceneName, Action onLoaded = null)
         {
-            if (SceneManager.GetActiveScene().name == sceneName)
-            {
-                onLoaded?.Invoke();
-                yield break;
-            }
-
-            AsyncOperation wait = SceneManager.LoadSceneAsync(sceneName);
+            AsyncOperation wait = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
 
             while (!wait.isDone)
                 yield return wait;
