@@ -48,14 +48,13 @@ namespace _Project.Code.Runtime.Infrastructure.EntryPoints
             _turret = _gameFactory.CreateTurret();
             ICamera camera = _gameFactory.CreateCamera();
             
-            _car.OnDestroyed += OnGameLost;
-            _car.OnReachedDestination += OnGameWon;
-            
             camera.SetTarget(_car.CameraTarget);
             _turret.InstallOn(_car.TurretInstallPoint);
             
-            _distanceIndicator.Setup(_carWarpPoint.position.z, _carDestinationPoint.position.z, _car.CameraTarget);
+            _car.OnDestroyed += OnGameLost;
+            _car.OnReachedDestination += OnGameWon;
             
+            _distanceIndicator.Setup(_carWarpPoint.position.z, _carDestinationPoint.position.z, _car.CameraTarget);
             _windowService.Open(WindowId.Tutorial);
         }
 
@@ -69,6 +68,8 @@ namespace _Project.Code.Runtime.Infrastructure.EntryPoints
             
             _car.StartMoving();
             _turret.Activate();
+            
+            _inputService.OnScreenTouched -= StartGameplay;
         }
         
         private void OnGameLost()
@@ -85,7 +86,6 @@ namespace _Project.Code.Runtime.Infrastructure.EntryPoints
         
         private void OnDestroy()
         {
-            _inputService.OnScreenTouched -= StartGameplay;
             _car.OnDestroyed -= OnGameLost;
             _car.OnReachedDestination -= OnGameWon;
             _inputService.Disable();
