@@ -1,3 +1,4 @@
+using _Project.Code.Runtime.Infrastructure.CommonServices.Input;
 using _Project.Code.Runtime.Infrastructure.CommonServices.SceneManagement;
 using _Project.Code.Runtime.Infrastructure.CommonServices.WindowManagement;
 using DG.Tweening;
@@ -11,16 +12,18 @@ namespace _Project.Code.Runtime.UI.Windows.Victory
     public class VictoryWindow : BaseWindow
     {
         [SerializeField] private TextMeshProUGUI _victoryMassage;
-        [SerializeField] private Button _restartButton;
         
         private ISceneLoader _sceneLoader;
         private ILoadingCurtain _loadingCurtain;
+        private IInputService _inputService;
 
         [Inject]
-        private void Construct(ISceneLoader sceneLoader, ILoadingCurtain loadingCurtain)
+        private void Construct(ISceneLoader sceneLoader, ILoadingCurtain loadingCurtain
+            , IInputService inputService)
         {
             _sceneLoader = sceneLoader;
             _loadingCurtain = loadingCurtain;
+            _inputService = inputService;
         }
 
         protected override void Initialize()
@@ -28,11 +31,14 @@ namespace _Project.Code.Runtime.UI.Windows.Victory
             Id = WindowId.Victory;
 
             PopupVictoryMessage();
-            
-            _restartButton.onClick.AddListener(() => {
-                _loadingCurtain.Appear();
-                _sceneLoader.Load(SceneList.Gameplay);
-            });
+
+            _inputService.OnScreenTouched += Replay;
+        }
+
+        private void Replay()
+        {
+            _loadingCurtain.Appear();
+            _sceneLoader.Load(SceneList.Gameplay);
         }
 
         private void PopupVictoryMessage()
@@ -44,6 +50,6 @@ namespace _Project.Code.Runtime.UI.Windows.Victory
         }
 
         protected override void Dispose() => 
-            _restartButton.onClick.RemoveAllListeners();
+            _inputService.OnScreenTouched -= Replay;
     }
 }

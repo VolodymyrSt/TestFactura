@@ -75,14 +75,12 @@ namespace _Project.Code.Runtime.Infrastructure.EntryPoints
         {
             _windowService.Open(WindowId.Defeat);
             _turret.Deactivate();
-            _inputService.Disable();
         }
         
         private void OnGameWon()
         {
             _windowService.Open(WindowId.Victory);
             _turret.Deactivate();
-            _inputService.Disable();
         }
         
         private void OnDestroy()
@@ -90,6 +88,7 @@ namespace _Project.Code.Runtime.Infrastructure.EntryPoints
             _inputService.OnScreenTouched -= StartGameplay;
             _car.OnDestroyed -= OnGameLost;
             _car.OnReachedDestination -= OnGameWon;
+            _inputService.Disable();
         }
     }
 }

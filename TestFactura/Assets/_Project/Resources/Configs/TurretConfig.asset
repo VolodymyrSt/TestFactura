@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f89726e11654ba89072bbb1890fbdcf, type: 3}
   m_Name: TurretConfig
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Code.Runtime.Configs.Turret.TurretConfigSO
-  RotationSpeed: 100
+  RotationSpeed: 10
   Response: 5
   MinAngle: -60
   MaxAngle: 60

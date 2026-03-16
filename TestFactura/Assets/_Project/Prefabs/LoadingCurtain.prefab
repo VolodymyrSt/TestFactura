@@ -118,8 +118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Code.Runtime.Infrastructure.CommonServices.SceneManagement.LoadingCurtain
   _canvasGroup: {fileID: 2705859317939038878}
-  _fadeDuration: 1
-  _durationBeforeFadeIn: 2
+  _fadeDuration: 0
+  _durationBeforeFadeIn: 0.4
 --- !u!225 &2705859317939038878
 CanvasGroup:
   m_ObjectHideFlags: 0
