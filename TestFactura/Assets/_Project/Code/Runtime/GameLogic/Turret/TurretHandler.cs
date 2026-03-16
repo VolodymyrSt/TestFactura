@@ -38,7 +38,7 @@ namespace _Project.Code.Runtime.GameLogic.Turret
         {
             _config = config;
             
-            _bulletPool.Preload(initialCount: 4);
+            _bulletPool.Preload(initialCount: 7);
             
             SetUpLaser();
             ResetFireCooldown();

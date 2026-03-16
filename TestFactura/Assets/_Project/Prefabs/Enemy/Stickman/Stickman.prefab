@@ -126,9 +126,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.46223247
-  m_Height: 1.8847967
+  m_Height: 1.9000441
   m_Direction: 1
-  m_Center: {x: -0.008303881, y: 0.82345957, z: 0}
+  m_Center: {x: -0.008303881, y: 0.83108324, z: 0}
 --- !u!1 &6010953374855217658
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,7 +999,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 30
+      scalar: 40
       minScalar: 10
       maxCurve:
         serializedVersion: 2

@@ -3,6 +3,7 @@ using _Project.Code.Runtime.Configs.Enemy;
 using _Project.Code.Runtime.GameLogic.HealthLogic;
 using _Project.Code.Runtime.Infrastructure.CommonServices.StaticData;
 using _Project.Code.Runtime.UI.HealthBar;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
@@ -55,6 +56,7 @@ namespace _Project.Code.Runtime.GameLogic.Enemy
         {
             _healthSystem.Reduce(damage);
             
+            PlayHitShake();
             _bloodParticles.Play();
 
             if (_healthSystem.Current <= 0)
@@ -139,6 +141,19 @@ namespace _Project.Code.Runtime.GameLogic.Enemy
         
         private bool IsTargetLayer(Collider other) => 
             (_targetMask.value & (1 << other.gameObject.layer)) != 0;
+        
+        private void PlayHitShake()
+        {
+            transform.DOKill();
+            transform.DOShakePosition(
+                    duration: 0.1f,
+                    strength: new Vector3(0.1f, 0.1f, 0.1f),
+                    vibrato: 2,
+                    randomness: 45,
+                    fadeOut: true)
+                .SetEase(Ease.OutQuad)
+                .Play();
+        }
 
         private void Die()
         {

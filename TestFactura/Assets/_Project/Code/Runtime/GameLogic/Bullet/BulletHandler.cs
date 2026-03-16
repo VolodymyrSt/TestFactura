@@ -33,7 +33,6 @@ namespace _Project.Code.Runtime.GameLogic.Bullet
         
         public void Reset()
         {
-            _isFired = false;
             _rigidbody.linearVelocity = Vector3.zero;
             _rigidbody.angularVelocity = Vector3.zero;
         }
@@ -78,6 +77,7 @@ namespace _Project.Code.Runtime.GameLogic.Bullet
         
         private void ReturnToPool()
         {
+            _isFired = false;
             _trail.enabled = false;
             _trail.Clear();
             _pool.Release(this);

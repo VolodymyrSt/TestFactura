@@ -521,4 +521,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa6b6e32b924e499b6e514c72075297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Code.Runtime.UI.Windows.Victory.VictoryWindow
+  _victoryMassage: {fileID: 783126707841606179}
   _restartButton: {fileID: 6461260317159261293}

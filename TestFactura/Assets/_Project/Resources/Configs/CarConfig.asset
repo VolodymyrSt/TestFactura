@@ -15,3 +15,4 @@ MonoBehaviour:
   Speed: 5
   StoppingDistance: 3
   MaxHealth: 35
+  RotationCooldown: 4

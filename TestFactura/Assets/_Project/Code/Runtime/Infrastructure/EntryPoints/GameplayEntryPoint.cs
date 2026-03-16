@@ -1,8 +1,8 @@
-using System;
 using _Project.Code.Runtime.Factory;
 using _Project.Code.Runtime.GameLogic.Barrier;
 using _Project.Code.Runtime.GameLogic.Camera;
 using _Project.Code.Runtime.GameLogic.Car;
+using _Project.Code.Runtime.GameLogic.DistаnceIndicator;
 using _Project.Code.Runtime.GameLogic.Turret;
 using _Project.Code.Runtime.Infrastructure.CommonServices.Input;
 using _Project.Code.Runtime.Infrastructure.CommonServices.WindowManagement;
@@ -23,17 +23,19 @@ namespace _Project.Code.Runtime.Infrastructure.EntryPoints
         private IGameFactory _gameFactory;
         private IInputService _inputService;
         private IWindowService _windowService;
+        private IDistanceIndicator _distanceIndicator;
 
         private ICar _car;
         private ITurret _turret;
         
         [Inject]
         private void Construct(IGameFactory gameFactory, IInputService inputService
-            ,IWindowService windowService)
+            ,IWindowService windowService, IDistanceIndicator distanceIndicator)
         {
             _gameFactory = gameFactory;
             _inputService = inputService;
             _windowService = windowService;
+            _distanceIndicator = distanceIndicator;
         }
 
         private void Awake()
@@ -52,9 +54,23 @@ namespace _Project.Code.Runtime.Infrastructure.EntryPoints
             camera.SetTarget(_car.CameraTarget);
             _turret.InstallOn(_car.TurretInstallPoint);
             
+            _distanceIndicator.Setup(_carWarpPoint.position.z, _carDestinationPoint.position.z, _car.CameraTarget);
+            
             _windowService.Open(WindowId.Tutorial);
         }
 
+        private void Update() => 
+            _distanceIndicator.Tick();
+
+        private void StartGameplay()
+        {
+            _windowService.Close(WindowId.Tutorial);
+            _barriers.Open();
+            
+            _car.StartMoving();
+            _turret.Activate();
+        }
+        
         private void OnGameLost()
         {
             _windowService.Open(WindowId.Defeat);
@@ -68,16 +84,7 @@ namespace _Project.Code.Runtime.Infrastructure.EntryPoints
             _turret.Deactivate();
             _inputService.Disable();
         }
-
-        private void StartGameplay()
-        {
-            _windowService.Close(WindowId.Tutorial);
-            _barriers.Open();
-            
-            _car.StartMoving();
-            _turret.Activate();
-        }
-
+        
         private void OnDestroy()
         {
             _inputService.OnScreenTouched -= StartGameplay;

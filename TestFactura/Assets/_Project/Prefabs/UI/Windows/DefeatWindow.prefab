@@ -448,6 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5905cb980fd2430bb791e567d5f94390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Code.Runtime.UI.Windows.Defeat.DefeatWindow
+  _defeatMassage: {fileID: 179696868419878850}
   _restartButton: {fileID: 6693278302711139027}
 --- !u!1 &7159697956739599583
 GameObject:

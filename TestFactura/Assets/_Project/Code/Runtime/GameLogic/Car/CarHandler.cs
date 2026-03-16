@@ -6,6 +6,7 @@ using _Project.Code.Runtime.UI.HealthBar;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 namespace _Project.Code.Runtime.GameLogic.Car
 {
@@ -14,12 +15,15 @@ namespace _Project.Code.Runtime.GameLogic.Car
         public event Action OnDestroyed;
         public event Action OnReachedDestination;
         
-        [Header("Base")]
+        [Header("Base:")]
         [SerializeField] private NavMeshAgent _agent;
         [SerializeField] private HealthBarView _healthBarView;
         
-        [Header("Turret Installation")]
+        [Header("Turret Installation:")]
         [SerializeField] private Transform _turretInstallPoint;
+        
+        [Header("Particle:")]
+        [SerializeField] private ParticleSystem _gasParticle;
         
         public Transform CameraTarget => transform;
         public bool IsAlive => _healthSystem != null && _healthSystem.Current > 0;
@@ -52,13 +56,17 @@ namespace _Project.Code.Runtime.GameLogic.Car
             if (IsReachedDestination())
             {
                 _agent.isStopped = true;
+                _gasParticle.Stop();
                 OnReachedDestination?.Invoke();
             }
         }
-
-        public void StartMoving() =>
+        
+        public void StartMoving()
+        {
             _agent.isStopped = false;
-
+            _gasParticle.Play();
+        }
+        
         public void TakeDamage(float damage)
         {
             _healthSystem.Reduce(damage);
@@ -67,8 +75,8 @@ namespace _Project.Code.Runtime.GameLogic.Car
             if (_healthSystem.Current <= 0)
             {
                 _agent.isStopped = true;
+                _gasParticle.Stop();
                 OnDestroyed?.Invoke();
-                Debug.Log("Game Over");
             }
         }
         
@@ -82,8 +90,7 @@ namespace _Project.Code.Runtime.GameLogic.Car
                     randomness: 45,
                     fadeOut: true)
                 .SetEase(Ease.OutQuad)
-                .Play()
-                .SetLink(gameObject);
+                .Play();
         }
         
         private bool IsReachedDestination() => 

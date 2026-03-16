@@ -7,7 +7,7 @@ namespace _Project.Code.Runtime.GameLogic.Bullet.Pool
 {
     public class BulletPool : IBulletPool
     {
-        private readonly Queue<IBullet> _pooledBullets = new Queue<IBullet>();
+        private readonly Queue<IBullet> _pooledBullets = new();
         private readonly IGameFactory _factory;
 
         private Transform _holder;
@@ -27,12 +27,17 @@ namespace _Project.Code.Runtime.GameLogic.Bullet.Pool
 
         public IBullet Get()
         {
-            IBullet bullet = _pooledBullets.IsEmpty() 
-                ? _factory.CreateBullet(this, Holder) 
-                : _pooledBullets.Dequeue();
+            IBullet bullet;
+            
+            if (_pooledBullets.IsEmpty())
+                bullet = _factory.CreateBullet(this, Holder);
+            else
+            {
+                bullet = _pooledBullets.Dequeue();
+                bullet.Reset();
+                bullet.SetActive(true);
+            }
 
-            bullet.Reset();
-            bullet.SetActive(true);
             return bullet;
         }
         
