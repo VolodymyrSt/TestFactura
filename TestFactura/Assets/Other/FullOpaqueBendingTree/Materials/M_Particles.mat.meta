@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 981a400ae1524abdbe318161a1fd89d4
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 317365
+  packageName: Full Opaque Bending Tree System
+  packageVersion: 1.0
+  assetPath: Assets/FullOpaqueBendingTree/Materials/M_Particles.mat
+  uploadId: 811786

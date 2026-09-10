@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Fix
+  m_Shader: {fileID: 4800000, guid: 589a0589dc241cf4f808c106528f2135, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _LEAN_WIND
+  - _USE_WIND_ON
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: 4d00bcbf79dcfa04dbb4bda7bf7f41c0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BranchBend: 0.1
+    - _BranchFlutter: 0.1
+    - _BranchLeadTime: 0.5
+    - _BranchPhase: 1.29
+    - _BranchRadius: 2
+    - _BranchSpeed: 1.3
+    - _BranchStrength: 0.4
+    - _CrownFollowStrength: 0.5
+    - _Cutoff: 0.5
+    - _FlutterSpeed: 8
+    - _FlutterStrength: 0.02
+    - _LeanIntoWind: 1
+    - _RootSmoothness: 0.1
+    - _RootStiffness: 0.452
+    - _ShimmerIntensity: 0.02
+    - _TreeHeight: 5
+    - _TrunkBend: 1.62
+    - _TrunkHeight: 5
+    - _TrunkSpeed: 0.5
+    - _TrunkStrength: 0.3
+    - _UseWind: 1
+    - _WindDirX: 1
+    - _WindDirZ: 0
+    - _WindLean: 0.3
+    - _WindLeanWeight: 1
+    - _WindPhase: 0
+    - _WindSpeed: 1
+    m_Colors:
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MainLightPosition: {r: 0, g: 0, b: 0, a: 0}
+    - _WindDirection: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

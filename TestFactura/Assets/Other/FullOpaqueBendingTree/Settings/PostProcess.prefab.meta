@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: de64ee0614fb47679efcc0d96aeba5d4
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 317365
+  packageName: Full Opaque Bending Tree System
+  packageVersion: 1.0
+  assetPath: Assets/FullOpaqueBendingTree/Settings/PostProcess.prefab
+  uploadId: 811786

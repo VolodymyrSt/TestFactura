@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Custom_Bull
+  m_Shader: {fileID: 4800000, guid: b9432841d1e8d3748a7d8f5123a586f0, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _USE_WIND_ON
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: 4d00bcbf79dcfa04dbb4bda7bf7f41c0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BranchFrequency: 1.7
+    - _BranchStrength: -0.3
+    - _BranchTurbulence: 0.5
+    - _CrownBias: 0
+    - _CrownFollow: 0.5
+    - _LeafFlutter: 0.2
+    - _LeafFrequency: 8
+    - _LeafShimmer: 0
+    - _LeanIntoWind: 0
+    - _RootStiffness: 0.948
+    - _TreeHeight: 5
+    - _TrunkBend: 0.5
+    - _UseWind: 1
+    - _WindDirX: 1
+    - _WindDirZ: 0
+    - _WindLeanWeight: 0.5
+    - _WindSpeed: 1
+    m_Colors:
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

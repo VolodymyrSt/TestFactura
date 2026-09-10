@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 3canals
+  m_Shader: {fileID: 4800000, guid: 4cb98e7ec06ca2a4896e2f010da8c8dd, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: 4d00bcbf79dcfa04dbb4bda7bf7f41c0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BranchLeadPhase: 4.84
+    - _BranchLeadTime: 1
+    - _BranchLean: 0.5
+    - _BranchPhaseOffset: 0.2
+    - _BranchSpeed: 2
+    - _BranchSpeedMult: 1.5
+    - _BranchStrength: 0.1
+    - _Cutoff: 0.361
+    - _FlutterSpeed: 10.76
+    - _FlutterStrength: 0.02
+    - _LeanIntoWind: 0
+    - _LeanMaxAngle: 30
+    - _LeanStrength: 0
+    - _TrunkBendSpeed: 0.4
+    - _TrunkBendStrength: 0.08
+    - _TrunkHeight: 5
+    - _TrunkSpeed: 0.5
+    - _TrunkStrength: 0.2
+    - _WindLean: 0.1
+    - _WindSpeed: 1
+    - _WindStrength: 0.08
+    m_Colors:
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _WindDirection: {r: 0, g: 0, b: 1, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

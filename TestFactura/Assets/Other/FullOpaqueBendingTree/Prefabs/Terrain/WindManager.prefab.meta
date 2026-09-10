@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: be43155e22e24f2e91448240a64d71ef
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 317365
+  packageName: Full Opaque Bending Tree System
+  packageVersion: 1.0
+  assetPath: Assets/FullOpaqueBendingTree/Prefabs/Terrain/WindManager.prefab
+  uploadId: 811786

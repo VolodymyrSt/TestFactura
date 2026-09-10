@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a5b0bcdf513e49028987e6ded5ee3a5f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 317365
+  packageName: Full Opaque Bending Tree System
+  packageVersion: 1.0
+  assetPath: Assets/FullOpaqueBendingTree/Settings/OptiFXPostProcessProfile.asset
+  uploadId: 811786

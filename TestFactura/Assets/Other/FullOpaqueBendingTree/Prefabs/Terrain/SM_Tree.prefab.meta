@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 550256bbb82743b1b8ddd0917456b31b
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 317365
+  packageName: Full Opaque Bending Tree System
+  packageVersion: 1.0
+  assetPath: Assets/FullOpaqueBendingTree/Prefabs/Terrain/SM_Tree.prefab
+  uploadId: 811786

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3c4727492440dd449a40b3c113b06658
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 165233
+  packageName: '#NVJOB STC8 (Custom shader for SpeedTree 8)'
+  packageVersion: 3.2
+  assetPath: Assets/#NVJOB STC8/Example/Example Material.mat
+  uploadId: 365251

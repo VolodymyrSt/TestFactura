@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a05ca7034797a3047803ed1ff6d64552
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 165233
+  packageName: '#NVJOB STC8 (Custom shader for SpeedTree 8)'
+  packageVersion: 3.2
+  assetPath: Assets/#NVJOB STC8/license_nvjob.txt
+  uploadId: 365251

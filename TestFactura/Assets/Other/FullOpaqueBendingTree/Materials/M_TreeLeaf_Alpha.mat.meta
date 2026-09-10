@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5894cc5a11be4926a97bdd977e324058
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 317365
+  packageName: Full Opaque Bending Tree System
+  packageVersion: 1.0
+  assetPath: Assets/FullOpaqueBendingTree/Materials/M_TreeLeaf_Alpha.mat
+  uploadId: 811786

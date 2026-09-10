@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 63076548ca524171945d1874e118acab
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 4890085278179872738
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 317365
+  packageName: Full Opaque Bending Tree System
+  packageVersion: 1.0
+  assetPath: Assets/FullOpaqueBendingTree/Settings/LightingSettings.lighting
+  uploadId: 811786

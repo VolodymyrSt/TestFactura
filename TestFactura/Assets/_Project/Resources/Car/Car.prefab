@@ -5714,6 +5714,7 @@ GameObject:
   - component: {fileID: 9046082825689162696}
   - component: {fileID: 5594369009717413591}
   - component: {fileID: 8227144614862845278}
+  - component: {fileID: 89395088601888748}
   m_Layer: 6
   m_Name: CarVisual
   m_TagString: Untagged
@@ -5797,6 +5798,19 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &89395088601888748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6703952220216149692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09fb2c5f145047846ac8e94ce0994dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AllIn13DShaderAssemebly::AllIn13DShader.AllIn13DShaderComponent
+  currRenderer: {fileID: 0}
 --- !u!1 &9146486292055598248
 GameObject:
   m_ObjectHideFlags: 0
